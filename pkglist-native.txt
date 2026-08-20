@@ -9,6 +9,7 @@ b43-fwcutter
 base
 base-devel
 bash-completion
+bat
 bind
 bitwarden
 blueman
@@ -53,6 +54,7 @@ epson-inkjet-printer-escpr
 ethtool
 ex-vi-compat
 exfatprogs
+eza
 f2fs-tools
 fastfetch
 ffmpegthumbs
@@ -199,6 +201,7 @@ smartmontools
 sof-firmware
 spotify-player
 starship
+stow
 sudo
 sysfsutils
 system-config-printer
@@ -246,3 +249,4 @@ xorg-xrandr
 xterm
 yay
 yt-dlp
+zoxide
