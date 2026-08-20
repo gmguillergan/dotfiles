@@ -1,0 +1,7 @@
+brave-bin
+epson-inkjet-printer-escpr
+jftui
+keybase
+rustdesk-bin
+teams-for-linux-bin
+termius

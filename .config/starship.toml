@@ -1,0 +1,58 @@
+# ~/.config/starship.toml
+
+format = """
+[](#9A348E)\
+$os\
+$username\
+[](bg:#DA627D fg:#9A348E)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[](fg:#FCA17D bg:#86BBD8)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:#86BBD8 bg:#06969A)\
+$docker_context\
+$conda\
+[](fg:#06969A bg:#33658A)\
+$time\
+[ ](fg:#33658A)\
+"""
+
+# Huwag maglagay ng bagong linya sa dulo
+add_newline = false
+
+[username]
+show_always = true
+style_user = "bg:#9A348E fg:#000000 bold"
+style_root = "bg:#9A348E fg:#ffffff bold"
+format = '[$user ]($style)'
+
+[directory]
+style = "bg:#DA627D fg:#000000 bold"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D fg:#000000 bold"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#FCA17D fg:#000000"
+format = '[$all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#33658A fg:#ffffff"
+format = '[  $time ]($style)'

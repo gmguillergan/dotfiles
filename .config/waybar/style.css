@@ -1,0 +1,61 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(26, 33, 26, 0.90);
+    border-bottom: 2px solid #8fa88b;
+    color: #e4e9e3;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #a3b89f;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background-color: rgba(143, 168, 139, 0.3);
+    border-bottom: 2px solid #b2c8a2;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+    color: #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background-color: #2b382c;
+    color: #d1ded0;
+}
+
+#pulseaudio.muted {
+    background-color: #4a3636;
+    color: #ff9999;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #635327;
+    color: #ffde70;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #632727;
+    color: #ff7070;
+}

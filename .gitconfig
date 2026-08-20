@@ -1,0 +1,23 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Gabriel Martin Guillergan
+	email = riel@gmguillergan.com
+	signingkey = CC6EFF965CC439DD
+[commit]
+	gpgsign = true
+[submodule]
+	fetchJobs = 0
+[lfs]
+	concurrenttransfers = 16
+[http]
+	version = HTTP/2
+[core]
+	compression = 0
+[gpg]
+	program = gpg
+[init]
+	defaultBranch = main
