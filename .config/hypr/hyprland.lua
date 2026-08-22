@@ -52,6 +52,7 @@ local menu        = "rofi -show drun"
 -------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("/usr/bin/gnome-keyring-daemon --start --components=secrets")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
@@ -71,7 +72,7 @@ hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("BROWSER", "brave")
-
+hl.env("SSH_AUTH_SOCK", "")
 
 ------------------------------------------
 ---- LOOK AND FEEL (SAGE GREEN THEME) ----

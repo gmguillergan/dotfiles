@@ -71,6 +71,7 @@ ghostscript
 git
 git-lfs
 glances
+gnome-keyring
 grim
 gsfonts
 gst-libav
@@ -163,6 +164,7 @@ pacman-contrib
 partitionmanager
 pavucontrol
 perl
+perl-image-exiftool
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
