@@ -82,6 +82,7 @@ alias gpull="git pull"
 alias gd="git diff"
 alias glog="git log --show-signature --oneline --graph --decorate"
 alias gkeys="gpg --list-secret-keys --keyid-format=long"
+alias gq="echo 'gs=\"git status -sb\"'; echo 'ga=\"git add\"'; echo 'gcm=\"git commit -S -m\"'; echo 'gp=\"git push\"'; echo 'gpull=\"git pull\"'; echo 'gd=\"git diff\"'; echo 'glog=\"git log --show-signature --oneline --graph --decorate\"'; echo 'gkeys=\"gpg --list-secret-keys --keyid-format=long\"'"
 
 # Mabilisang pag-manage ng dotfiles repository
 alias dotfiles="cd ~/dotfiles"
