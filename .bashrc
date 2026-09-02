@@ -250,7 +250,8 @@ extract() {
 # ==========================================
 # Welcome screen
 if command -v fastfetch &> /dev/null; then
-    fastfetch
+   echo " " && echo "==========" && fastfetch --logo none && echo "==========" && echo " "
+
 fi
 
 # Modern CLI tools integration (FZF, Zoxide, Starship)
