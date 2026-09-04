@@ -52,7 +52,10 @@ local menu        = "rofi -show drun"
 -------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("/usr/bin/gnome-keyring-daemon --start --components=secrets")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
+    hl.exec_cmd("kwalletd6")
+    hl.exec_cmd("/usr/lib/pam_kwallet_init")
+    hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
@@ -71,7 +74,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-hl.env("BROWSER", "brave")
+hl.env("BROWSER", "zen")
 hl.env("SSH_AUTH_SOCK", "")
 
 ------------------------------------------
