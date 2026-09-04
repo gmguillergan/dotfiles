@@ -61,7 +61,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
-    hl.exec_cmd("blueman-applet")
+    hl.exec_cmd("fcitx5 -d")
 end)
 
 
@@ -177,6 +177,7 @@ hl.config({
 hl.config({
     input = {
         kb_layout  = "us",
+	kb_options   = "korean:ralt_hangul",
         follow_mouse = 1,
         sensitivity = 0,
 
@@ -201,15 +202,13 @@ hl.gesture({
 local mainMod = "SUPER"
 
 -- Core Apps & Windows-Style Shortcuts
-hl.bind(mainMod .. " + Q",              hl.dsp.exec_cmd(terminal))
+hl.bind("CTRL + ALT + T",             	hl.dsp.exec_cmd(terminal))
 hl.bind("ALT + F4",                     hl.dsp.window.close())
-hl.bind(mainMod .. " + C",              hl.dsp.window.close())
 hl.bind(mainMod .. " + E",              hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R",              hl.dsp.exec_cmd(menu))
 hl.bind("CTRL + SHIFT + Escape",        hl.dsp.exec_cmd("missioncenter"))
-hl.bind(mainMod .. " + SHIFT + M",      hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
-hl.bind(mainMod .. " + CTRL + Escape", hl.dsp.exec_cmd("uwsm stop || killall -9 Hyprland"))
-
+hl.bind("CTRL + ALT + Delete",     	hl.dsp.exec_cmd("wlogout -b 6 -c 15 -r 15 -m 350"))
+hl.bind(mainMod .. " + L",		hl.dsp.exec_cmd("hyprlock"))
 -- Utilities (Clipboard & Color Picker)
 hl.bind(mainMod .. " + V",              hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + C",      hl.dsp.exec_cmd('hyprpicker -a && notify-send "Color Picker" "Copied to clipboard!" -i color-picker'))
@@ -279,8 +278,7 @@ hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.exec_cmd("rofi -show window"))
 
 -- Floating rules para sa Dialogs, System Utilities, at Mission Center
 hl.window_rule({
-    name  = "float-kleopatra",
-    match = { class = "org.kde.kleopatra" },
+    name  = "float-kleopatra",match = { class = "org.kde.kleopatra" },
     float = true,
 })
 
