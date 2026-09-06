@@ -74,7 +74,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-hl.env("BROWSER", "zen")
+hl.env("BROWSER", "/opt/zen-browser-bin/zen-bin")
 hl.env("SSH_AUTH_SOCK", "")
 
 ------------------------------------------
@@ -204,6 +204,7 @@ local mainMod = "SUPER"
 -- Core Apps & Windows-Style Shortcuts
 hl.bind("CTRL + ALT + T",             	hl.dsp.exec_cmd(terminal))
 hl.bind("ALT + F4",                     hl.dsp.window.close())
+hl.bind(mainMod .. " + C",		hl.dsp.window.close())
 hl.bind(mainMod .. " + E",              hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R",              hl.dsp.exec_cmd(menu))
 hl.bind("CTRL + SHIFT + Escape",        hl.dsp.exec_cmd("missioncenter"))
@@ -212,7 +213,7 @@ hl.bind(mainMod .. " + L",		hl.dsp.exec_cmd("hyprlock"))
 -- Utilities (Clipboard & Color Picker)
 hl.bind(mainMod .. " + V",              hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + C",      hl.dsp.exec_cmd('hyprpicker -a && notify-send "Color Picker" "Copied to clipboard!" -i color-picker'))
-
+hl.bind(mainMod .. " + PERIOD",		hl.dsp.exec_cmd("bemoji -t"))
 -- Window Management & Sizing
 hl.bind(mainMod .. " + SPACE",          hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P",              hl.dsp.window.pseudo())
