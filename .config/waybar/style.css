@@ -6,24 +6,27 @@
     min-height: 0;
 }
 
+/* Floating Window Bar */
 window#waybar {
     background-color: rgba(26, 33, 26, 0.90);
-    border-bottom: 2px solid #8fa88b;
+    border: 1.5px solid rgba(143, 168, 139, 0.4);
+    border-radius: 12px;
     color: #e4e9e3;
+    padding: 0 4px;
 }
 
 #workspaces {
     margin: 4px 2px;
     padding: 0 4px;
     background-color: #2b382c;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 #workspaces button {
     padding: 0 8px;
     color: #a3b89f;
     background-color: transparent;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -50,12 +53,23 @@ window#waybar {
 #bluetooth,
 #pulseaudio,
 #tray,
-#custom-power {
+#custom-power,
+#mpris {
     padding: 0 10px;
     margin: 4px 2px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: #2b382c;
     color: #d1ded0;
+}
+
+#mpris {
+    background-color: #243025;
+    color: #a3c4a0;
+    font-style: normal;
+}
+
+#mpris:hover {
+    background-color: #334234;
 }
 
 #pulseaudio.muted {
