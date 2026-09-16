@@ -215,6 +215,54 @@ gpg-decrypt() {
     gpg --output "$out" --decrypt "$1" && echo "✓ Decrypted as: $out"
 }
 
+
+aicommit() {
+    # 1. Ensure there are staged files
+    if git diff --cached --quiet; then
+        echo "No staged files found! Run 'git add' first before committing."
+        return 1
+    fi
+
+    echo "Reading diff and generating Conventional Commit with Ollama..."
+
+    # 2. Get the staged diff (capped at 3000 chars to stay light on the CPU)
+    local diff
+    diff=$(git diff --cached | head -c 3000)
+
+    # 3. Send payload to local Ollama API
+    local prompt="You are a Git commit message generator following Conventional Commits format (e.g. feat(scope): message, fix(scope): message, chore(scope): message). Return ONLY the single-line commit message in lowercase. Do not include quotes, markdown backticks, explanations, or any other text. Here is the git diff:\n\n${diff}"
+
+    local commit_msg
+    commit_msg=$(curl -s http://localhost:11434/api/generate -d "$(jq -n --arg p "$prompt" '{model: "llama3.2:1b", prompt: $p, stream: false}')" | jq -r '.response' | tr -d '\r\n"')
+
+    if [ -z "$commit_msg" ] || [ "$commit_msg" = "null" ]; then
+        echo "Ollama failed to generate a commit message. Make sure the ollama service is running!"
+        return 1
+    fi
+
+    echo ""
+    echo "Generated Commit Message:"
+    echo -e "\033[1;32m$commit_msg\033[0m"
+    echo ""
+
+    # 4. Prompt for approval before committing
+    read -p "Use this commit message? (y/n/e to edit): " choice
+    case "$choice" in
+        y|Y )
+            git commit -S -m "$commit_msg"
+            ;;
+        e|E )
+            read -e -i "$commit_msg" -p "Edit message: " edited_msg
+            git commit -S -m "$edited_msg"
+            ;;
+        * )
+            echo "Commit aborted."
+            return 0
+            ;;
+    esac
+}
+
+
 # ==========================================
 # 5. USEFUL FUNCTIONS
 # ==========================================
