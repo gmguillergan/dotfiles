@@ -62,6 +62,7 @@ alias bashrc='$EDITOR ~/.bashrc'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias home="cd /home/chanchanjeu"
 
 # ==========================================
 # 3. ENDEAVOUROS & PACMAN / YAY MAINTENANCE
@@ -217,7 +218,6 @@ gpg-decrypt() {
 
 
 aicommit() {
-    # 1. Ensure there are staged files
     if git diff --cached --quiet; then
         echo "No staged files found! Run 'git add' first before committing."
         return 1
@@ -225,15 +225,26 @@ aicommit() {
 
     echo "Reading diff and generating Conventional Commit with Ollama..."
 
-    # 2. Get the staged diff (capped at 3000 chars to stay light on the CPU)
     local diff
     diff=$(git diff --cached | head -c 3000)
 
-    # 3. Send payload to local Ollama API
-    local prompt="You are a Git commit message generator following Conventional Commits format (e.g. feat(scope): message, fix(scope): message, chore(scope): message). Return ONLY the single-line commit message in lowercase. Do not include quotes, markdown backticks, explanations, or any other text. Here is the git diff:\n\n${diff}"
+    # Mas structured na payload na may system role at temperature
+    local payload
+    payload=$(jq -n \
+        --arg sys "You are a Git commit message generator. Follow the Conventional Commits specification strictly (e.g. feat(scope): description, fix(scope): description, chore(scope): description, style(scope): description). Output ONLY the final single-line lowercase commit message. No explanations, no quotes, no conversational filler." \
+        --arg usr "Write a concise conventional commit message for this git diff:\n\n$diff" \
+        '{
+            model: "qwen2.5-coder:1.5b",
+            system: $sys,
+            prompt: $usr,
+            stream: false,
+            options: {
+                temperature: 0.2
+            }
+        }')
 
     local commit_msg
-    commit_msg=$(curl -s http://localhost:11434/api/generate -d "$(jq -n --arg p "$prompt" '{model: "llama3.2:1b", prompt: $p, stream: false}')" | jq -r '.response' | tr -d '\r\n"')
+    commit_msg=$(curl -s http://localhost:11434/api/generate -d "$payload" | jq -r '.response' | tr -d '\r\n"' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
     if [ -z "$commit_msg" ] || [ "$commit_msg" = "null" ]; then
         echo "Ollama failed to generate a commit message. Make sure the ollama service is running!"
@@ -245,7 +256,6 @@ aicommit() {
     echo -e "\033[1;32m$commit_msg\033[0m"
     echo ""
 
-    # 4. Prompt for approval before committing
     read -p "Use this commit message? (y/n/e to edit): " choice
     case "$choice" in
         y|Y )
