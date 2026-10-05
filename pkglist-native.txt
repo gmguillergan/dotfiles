@@ -225,6 +225,8 @@ plasma-meta
 plocate
 plymouth
 plymouth-kcm
+podman
+podman-compose
 polkit-kde-agent
 poppler-glib
 power-profiles-daemon
