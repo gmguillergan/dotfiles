@@ -44,12 +44,15 @@ jobs:
         run: |
           yamllint -d "{extends: relaxed, rules: {line-length: disable, document-start: disable, truthy: disable, trailing-spaces: disable}}" .github/workflows/
 
-      - name: Test GNU Stow (Dry Run Simulation)
+      - name: Test GNU Stow
         run: |
           echo "==> Testing package simulation with Stow..."
-          # Stow root .config contents directly to $HOME/.config
+          # Remove default runner files that conflict with stow
+          rm -f "$HOME/.bashrc" "$HOME/.bash_profile" "$HOME/.bash_logout"
+
+          # Ensure target .config directory exists
           mkdir -p "$HOME/.config"
-          
+
           # Simulate individual packages
           for pkg in bash git netbeans; do
             if [ -d "$pkg" ]; then
