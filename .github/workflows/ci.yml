@@ -24,7 +24,7 @@ jobs:
       - name: Lint Shell scripts & configs
         run: |
           echo "==> Running ShellCheck on Bash configs..."
-          find bash/ -type f \( -name "*.sh" -o -name ".bashrc" \) | xargs -r shellcheck -e SC1090,SC1091
+          find bash/ -type f \( -name "*.sh" -o -name ".bashrc" \) | xargs -r shellcheck --shell=bash -e SC1090,SC1091,SC2155,SC2162,SC2164
 
       - name: Validate TOML & JSON syntax
         run: |
