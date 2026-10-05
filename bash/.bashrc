@@ -144,6 +144,10 @@ alias gb="git branch"
 # Dotfiles
 alias dotfiles="cd ~/dotfiles"
 
+# Docker (Podman)
+alias docker=podman
+alias docker-compose=podman-compose
+
 # GPG Testing & Management
 alias gpg-test="echo 'test' | gpg --clearsign"
 alias gpg-restart="gpgconf --kill gpg-agent && gpgconf --launch gpg-agent && echo '✓ GPG Agent reloaded!'"
