@@ -1,0 +1,64 @@
+name: Dotfiles CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y stow shellcheck yamllint
+
+      - name: Lint Shell scripts & configs
+        run: |
+          echo "==> Running ShellCheck on Bash configs..."
+          find bash/ -type f \( -name "*.sh" -o -name ".bashrc" \) | xargs -r shellcheck -e SC1090,SC1091
+
+      - name: Validate TOML & JSON syntax
+        run: |
+          echo "==> Validating Starship TOML config..."
+          python3 -c 'import tomllib, pathlib; tomllib.loads(pathlib.Path(".config/starship.toml").read_text())'
+
+          echo "==> Validating Waybar JSON config..."
+          # Removes standard JSONC comments before validating JSON
+          python3 -c '
+          import json, re, pathlib
+          content = pathlib.Path(".config/waybar/config.jsonc").read_text()
+          cleaned = re.sub(r"//.*?\n|/\*.*?\*/", "", content, flags=re.S)
+          json.loads(cleaned)
+          '
+
+      - name: Validate GitHub Actions YAML
+        run: |
+          yamllint -d "{extends: relaxed, rules: {line-length: disable}}" .github/workflows/
+
+      - name: Test GNU Stow (Dry Run Simulation)
+        run: |
+          echo "==> Testing package simulation with Stow..."
+          # Stow root .config contents directly to $HOME/.config
+          mkdir -p "$HOME/.config"
+          
+          # Simulate individual packages
+          for pkg in bash git netbeans; do
+            if [ -d "$pkg" ]; then
+              echo "Simulating stow for: $pkg"
+              stow -nv -t "$HOME" "$pkg"
+            fi
+          done
+
+      - name: Scan repository for secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
