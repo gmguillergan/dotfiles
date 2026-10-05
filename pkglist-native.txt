@@ -156,6 +156,7 @@ konsole
 kwalletmanager
 kwindowsystem5
 ladspa
+lazygit
 less
 libdvdcss
 libgsf
