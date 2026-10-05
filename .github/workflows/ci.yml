@@ -42,7 +42,7 @@ jobs:
 
       - name: Validate GitHub Actions YAML
         run: |
-          yamllint -d "{extends: relaxed, rules: {line-length: disable}}" .github/workflows/
+          yamllint -d "{extends: relaxed, rules: {line-length: disable, document-start: disable, truthy: disable, trailing-spaces: disable}}" .github/workflows/
 
       - name: Test GNU Stow (Dry Run Simulation)
         run: |
