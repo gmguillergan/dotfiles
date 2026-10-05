@@ -98,7 +98,18 @@ clean-cache() {
 
 
 # Export installed packages to dotfiles
-alias pkgexport="pacman -Qqe > ~/dotfiles/pkglist-native.txt && pacman -Qqm > ~/dotfiles/pkglist-aur.txt && flatpak list --app --columns=application > ~/dotfiles/pkglist-flatpak.txt 2>/dev/null && echo '✓ Package lists updated in ~/dotfiles/'"
+alias pkgexport="cd ~/dotfiles && \
+pacman -Qqe > pkglist-native.txt && \
+pacman -Qqm > pkglist-aur.txt && \
+flatpak list --app --columns=application > pkglist-flatpak.txt 2>/dev/null && \
+if git status --porcelain | grep -q 'pkglist'; then \
+    git add pkglist-native.txt pkglist-aur.txt pkglist-flatpak.txt && \
+    git commit -S -m 'chore(pkglist): update installed packages' && \
+    git push origin main && \
+    echo '✓ Package lists updated, committed, and pushed!'; \
+else \
+    echo '✓ No package changes detected.'; \
+fi && cd -"
 
 # Disk usage shortcuts
 alias df='df -h'
