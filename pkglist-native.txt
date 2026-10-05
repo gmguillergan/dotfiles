@@ -256,7 +256,6 @@ sbctl
 sddm
 sg3_utils
 sirikali
-sl
 slurp
 smartmontools
 sof-firmware
