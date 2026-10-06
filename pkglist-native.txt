@@ -276,6 +276,8 @@ sysfsutils
 system-config-printer
 systemd-sysvcompat
 termius
+tesseract-data-jpn
+tesseract-data-kor
 texinfo
 thunderbird
 tldr
