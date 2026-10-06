@@ -16,6 +16,7 @@ onlyoffice-bin
 packettracer
 powershell-bin
 python-yattag
+quickshell-git
 rustdesk-bin
 sirikali
 termius

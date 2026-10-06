@@ -27,7 +27,6 @@ btrfs-progs
 cantarell-fonts
 chirp-next
 chromium
-cli11
 cliphist
 cmake
 colord
@@ -246,6 +245,7 @@ python-reportlab
 qt5-wayland
 qt6-virtualkeyboard
 qt6-wayland
+quickshell-git
 rclone
 rebuild-detector
 reflector
@@ -297,7 +297,6 @@ v4l2loopback-dkms
 veracrypt
 vlc
 vlc-plugin-ffmpeg
-vulkan-headers
 vulkan-intel
 waybar
 welcome
