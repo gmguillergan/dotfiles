@@ -27,6 +27,7 @@ btrfs-progs
 cantarell-fonts
 chirp-next
 chromium
+cli11
 cliphist
 cmake
 colord
@@ -296,6 +297,7 @@ v4l2loopback-dkms
 veracrypt
 vlc
 vlc-plugin-ffmpeg
+vulkan-headers
 vulkan-intel
 waybar
 welcome
