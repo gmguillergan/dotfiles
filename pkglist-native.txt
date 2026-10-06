@@ -258,6 +258,7 @@ sane
 sane-airscan
 sbctl
 sddm
+sddm-kcm
 sg3_utils
 sirikali
 slurp
