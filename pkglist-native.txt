@@ -147,6 +147,7 @@ kdenlive
 kernel-install-for-dracut
 keybase
 kiconthemes5
+kio-admin
 kio-gdrive
 kirigami2
 kitty
