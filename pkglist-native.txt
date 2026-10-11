@@ -240,6 +240,7 @@ python-installer
 python-jinja
 python-packaging
 python-pillow
+python-pipx
 python-pyqt5
 python-reportlab
 qt5-wayland
