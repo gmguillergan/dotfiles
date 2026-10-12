@@ -167,6 +167,7 @@ libva-utils
 linux
 linux-firmware
 linux-headers
+lmms
 localsend
 logrotate
 lsb-release
