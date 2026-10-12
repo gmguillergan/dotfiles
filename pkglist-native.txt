@@ -297,6 +297,7 @@ unzip
 upower
 usb_modeswitch
 usbutils
+uxplay
 v4l2loopback-dkms
 veracrypt
 vlc

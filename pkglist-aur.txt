@@ -22,6 +22,7 @@ sirikali
 termius
 ttf-ms-fonts
 ttf-vista-fonts
+uxplay
 wlogout
 xnviewmp
 zen-browser-bin
