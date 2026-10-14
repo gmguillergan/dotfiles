@@ -146,6 +146,7 @@ kdegraphics-thumbnailers
 kdenlive
 kernel-install-for-dracut
 keybase
+kfind
 kiconthemes5
 kio-admin
 kio-gdrive
@@ -248,7 +249,6 @@ qt5-wayland
 qt6-virtualkeyboard
 qt6-wayland
 quickshell-git
-rclone
 rebuild-detector
 reflector
 reflector-simple

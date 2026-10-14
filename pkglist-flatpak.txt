@@ -1,3 +1,2 @@
-com.usebottles.bottles
 net.epson.epsonscan2
 org.vinegarhq.Sober
