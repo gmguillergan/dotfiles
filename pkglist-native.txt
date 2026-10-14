@@ -189,7 +189,6 @@ mtools
 nano
 nano-syntax-highlighting
 ncdu
-netbeans
 netctl
 network-manager-applet
 networkmanager
