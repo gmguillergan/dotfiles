@@ -1,6 +1,7 @@
 antigravity-ide
 bemoji
 chirp-next
+colord-kde
 doubletake-bin
 epson-inkjet-printer-escpr
 epson-inkjet-printer-escpr2
