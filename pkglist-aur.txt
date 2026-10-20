@@ -8,6 +8,7 @@ epson-inkjet-printer-escpr2
 esphome-desktop-bin
 galaxybudsclient-bin
 gnome-network-displays
+jetbrains-toolbox
 jexiftoolgui
 jftui
 keybase

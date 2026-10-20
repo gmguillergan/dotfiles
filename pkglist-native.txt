@@ -134,6 +134,7 @@ inxi
 iptables
 iwd
 jdk8-openjdk
+jetbrains-toolbox
 jexiftoolgui
 jftui
 jq
