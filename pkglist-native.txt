@@ -126,6 +126,7 @@ hyprlauncher
 hyprlock
 hyprpaper
 hyprpicker
+img2pdf
 inetutils
 inotify-tools
 intel-media-driver
