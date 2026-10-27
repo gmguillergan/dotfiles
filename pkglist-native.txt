@@ -270,6 +270,7 @@ slurp
 smartmontools
 sof-firmware
 sox
+spek
 spotify-player
 sshfs
 starship
