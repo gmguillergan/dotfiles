@@ -199,11 +199,13 @@ networkmanager-openconnect
 networkmanager-openvpn
 nfs-utils
 nmap
+nodejs
 noise-suppression-for-voice
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+npm
 nss-mdns
 ntfs-3g
 ntfsprogs
@@ -333,5 +335,6 @@ xorg-xrandr
 yay
 yt-dlp
 zen-browser-bin
+zip
 zotero
 zoxide
