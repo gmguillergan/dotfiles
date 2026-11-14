@@ -26,7 +26,6 @@ btop
 btrfs-progs
 cantarell-fonts
 chirp-next
-chromium
 cliphist
 cmake
 colord
