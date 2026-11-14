@@ -14,6 +14,7 @@ jftui
 keybase
 kirigami2
 localsend
+needrestart
 onlyoffice-bin
 packettracer
 powershell-bin

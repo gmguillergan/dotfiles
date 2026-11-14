@@ -191,6 +191,7 @@ mtools
 nano
 nano-syntax-highlighting
 ncdu
+needrestart
 net-tools
 netctl
 network-manager-applet
@@ -222,12 +223,6 @@ pavucontrol
 pdfarranger
 perl
 perl-image-exiftool
-perl-libintl-perl
-perl-module-find
-perl-module-scandeps
-perl-proc-processtable
-perl-sort-naturally
-perl-term-readkey
 picard
 pipewire-alsa
 pipewire-jack
