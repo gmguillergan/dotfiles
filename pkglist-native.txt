@@ -7,7 +7,6 @@ alsa-utils
 antigravity-ide
 ark
 arm-none-eabi-binutils
-arm-none-eabi-gcc
 aspell
 audacity
 b43-fwcutter
