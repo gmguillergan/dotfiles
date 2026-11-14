@@ -118,6 +118,7 @@ gvfs-mtp
 gwenview
 haveged
 hdparm
+helium-browser-bin
 hwdetect
 hwinfo
 hypridle
