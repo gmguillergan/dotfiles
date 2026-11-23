@@ -19,6 +19,7 @@ needrestart
 onlyoffice-bin
 packettracer
 powershell-bin
+puddletag
 python-yattag
 quickshell-git
 rustdesk-bin
