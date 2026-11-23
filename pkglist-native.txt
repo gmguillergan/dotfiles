@@ -239,14 +239,17 @@ power-profiles-daemon
 powershell-bin
 python
 python-build
+python-configobj
 python-defusedxml
 python-installer
 python-jinja
 python-packaging
 python-pillow
 python-pipx
+python-pyparsing
 python-pyqt5
 python-reportlab
+python-unidecode
 qt5-wayland
 qt6-virtualkeyboard
 qt6-wayland
