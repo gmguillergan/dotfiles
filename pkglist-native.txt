@@ -90,6 +90,7 @@ foomatic-db-nonfree
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
 frameworkintegration5
+fvm
 fwupd
 galaxybudsclient-bin
 geeqie
@@ -169,6 +170,7 @@ libva-utils
 linux
 linux-firmware
 linux-headers
+lld
 lmms
 localsend
 logrotate
@@ -218,6 +220,7 @@ packagekit-qt6
 packettracer
 pacman-contrib
 partitionmanager
+patchelf
 pavucontrol
 pdfarranger
 perl
@@ -258,6 +261,7 @@ reflector-simple
 rofi
 rsync
 rtkit
+rust
 rustdesk-bin
 s-nail
 sane

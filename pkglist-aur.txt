@@ -31,4 +31,3 @@ uxplay
 wlogout
 xnviewmp
 zen-browser-bin
-zotero
